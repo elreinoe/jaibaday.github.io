@@ -1,0 +1,73 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaiba Day - Calendario Lunar 2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <script type="importmap">
+    {
+        "imports": {
+            "app_logic": "./script.js"
+        }
+    }
+    </script>
+</head>
+<body class="bg-gray-900 text-white flex flex-col items-center min-h-screen p-4 font-sans">
+
+    <header class="w-full max-w-2xl mb-6 text-center">
+        <h1 class="text-4xl font-bold text-cyan-400">Jaiba Day</h1>
+        <p class="text-lg text-gray-400">Calendario Lunar 2025 para Pescadores de Jaibas</p>
+    </header>
+
+    <main class="w-full max-w-2xl bg-gray-800 rounded-lg shadow-xl p-4 sm:p-6">
+        <div class="flex justify-between items-center mb-4">
+            <button id="prev-month" class="p-2 rounded-md hover:bg-gray-700 transition-colors">
+                <img src="arrow-left.png" alt="Mes Anterior" class="h-6 w-6">
+            </button>
+            <div id="month-year-header" class="text-xl sm:text-2xl font-semibold text-cyan-300">
+                <!-- Month and year will be injected by JS -->
+            </div>
+            <button id="next-month" class="p-2 rounded-md hover:bg-gray-700 transition-colors">
+                <img src="arrow-right.png" alt="Mes Siguiente" class="h-6 w-6">
+            </button>
+        </div>
+
+        <div id="calendar-grid" class="grid grid-cols-7 gap-1 sm:gap-2">
+            <!-- Days of the week headers -->
+            <div class="font-medium text-center text-xs sm:text-sm text-gray-400 py-2">LUN</div>
+            <div class="font-medium text-center text-xs sm:text-sm text-gray-400 py-2">MAR</div>
+            <div class="font-medium text-center text-xs sm:text-sm text-gray-400 py-2">MIÉ</div>
+            <div class="font-medium text-center text-xs sm:text-sm text-gray-400 py-2">JUE</div>
+            <div class="font-medium text-center text-xs sm:text-sm text-gray-400 py-2">VIE</div>
+            <div class="font-medium text-center text-xs sm:text-sm text-gray-400 py-2">SÁB</div>
+            <div class="font-medium text-center text-xs sm:text-sm text-gray-400 py-2">DOM</div>
+            <!-- Calendar days will be injected by JS -->
+        </div>
+    </main>
+
+    <footer class="mt-8 text-center text-sm text-gray-500">
+        <p>&copy; 2024 Jaiba Day. Todos los derechos reservados.</p>
+        <p class="mt-1">Datos lunares simulados para 2025. Integrar API para precisión.</p>
+    </footer>
+    
+    <!-- Placeholder for future side panel with Chart.js and tide data -->
+    <!-- 
+    <aside id="info-panel" class="hidden md:block w-1/4 p-4 bg-gray-700 rounded-lg shadow-lg ml-4">
+        <h3 class="text-lg font-semibold mb-2">Fase Lunar Actual</h3>
+        <canvas id="lunar-phase-chart"></canvas>
+        <h3 class="text-lg font-semibold mt-4 mb-2">Mareas</h3>
+        <div id="tide-data-container">
+            <p>Aquí se mostrarán los datos de mareas de WorldTides API.</p>
+        </div>
+    </aside> 
+    -->
+
+    <script type="module">
+        import { initCalendar } from "app_logic";
+        document.addEventListener('DOMContentLoaded', () => {
+            initCalendar(2025); // Initialize for the year 2025
+        });
+    </script>
+</body>
+</html>
